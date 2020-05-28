@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'JetBrainsMono-Regular';
+  src: url('JetBrainsMono-Regular.eot'); /* IE9 Compat Modes */
+  src: url('JetBrainsMono-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('JetBrainsMono-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('JetBrainsMono-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('JetBrainsMono-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+/* Style the body */
+body {
+  font-family: 'JetBrainsMono-Regular', Fallback, Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+#header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+/* Page Content */
+#content {
+  padding: 20px;
+}
+
