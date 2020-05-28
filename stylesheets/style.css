@@ -4,7 +4,7 @@
   src: url('JetBrainsMono-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
        url('JetBrainsMono-Regular.woff2') format('woff2'), /* Super Modern Browsers */
        url('JetBrainsMono-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-       url('JetBrainsMono-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('JetBrainsMono-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
 }
 
 /* Style the body */
