@@ -29,14 +29,14 @@
            <p>
           This project uses face image data from the Olivetti Research Laboratory (ORL).
           The ORL data set is useful because all images are of a standard size and
-          there is little variance in the lighting and positioning of the face
+          there is little variance in the lighting and positioning of the face.
           Eigenfaces requires standard dimension images and works best when the lighting, positioning and expression of the faces are standard.</p>
 
         <p>After Image files are loaded they must be transformed. Each image is transfromed from a <i>l × w</i> matrix of greyscale values
           to a single column vector of length <i>lw</i>. Next:</p>
           <li> Each image is concatenated into a matrix <i>X</i> whose columns are the image vectors;</li>
-          <li> The mean image vector is subtrated from each row of <i>X</i>;</li>
-          <li> the covariance matrix <i>S</i> of <i>X</i> is calcualted; and</li>
+          <li> The mean image vector is subtracted from each row of <i>X</i>;</li>
+          <li> the covariance matrix <i>S</i> of <i>X</i> is calculated; and</li>
           <li> The eigendecomposition of <i>S</i> is found.</li>
             
 
@@ -89,16 +89,16 @@
             </div>
        <h5>Using Eigenfaces</h5>
        <hr>
-       <p>Note that the eigenface representations in the right image weren't created using all the obtianed eigenvectors(AKA principal components).
+       <p>Note that the eigenface representations in the right image weren't created using all the obtained eigenvectors (AKA principal components).
         The image used a weighted sum of only the 100 most dominant eigenvectors. The rest of the eigenvectors contributed sufficiently little information as to be ignored.
         Igoring these vectors allows this algorithm to greatly compress the information needing to be stored and In this way this algorithm is working much like the PCA algorithm, 
         a threshold is determined for which eigenvectors are kept for analysis/identifcation and the rest can safely be ignored allowing for less space and computational requirements.
       </p><p>
       Images are stored as weights of the dominant eigenvectors and images can be added by storing new weights without 
-      recalculating any matrix decompositions. Comparisions of a new image to identify it with an existing one is just a 
+      recalculating any matrix decompositions. Comparisons of a new image to identify it with an existing one is just a 
       matter of comparing the weights. The Euclidean distance between a new image's weights and the existing weight vector
-      is used to compare. A threshold for determining whether a given comparason must be decided and should be based on experimentation
-      with the individual dataset..
+      is used to compare. A threshold for determining whether a given comparison must be decided and should be based on experimentation
+      with the individual dataset.
     </p>
     <figure>
       <img src="images/eigenfaces/weight_calc.png" alt="Matrix-Vector product" style="width:40%">
@@ -108,8 +108,8 @@
 
      <h5>Conclusion</h5>
      <hr>
-     <p>The Eigenfaces algorithm gives a neat demonstration of some linear algebra principals and can be used to explain Principal Compoenent Analysis or Singular Value Decomposition. 
-       However, with the modern ubiquity of processing power, storage and machine learning techniques it is certianly not the most powerful or robust algorithm for identifcation tasks.</p>
+     <p>The Eigenfaces algorithm gives a neat demonstration of some linear algebra principles and can be used to explain Principle Component Analysis or Singular Value Decomposition. 
+       However, with the modern ubiquity of processing power, storage and machine learning techniques it is certainly not the most powerful or robust algorithm for identification tasks.</p>
        <p> Please see my repo for complete matlab code.</p>
 
 
