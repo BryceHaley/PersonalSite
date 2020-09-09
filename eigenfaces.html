@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>BHaley Eigenfaces</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/style.css">
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="header">
+        <h1>Bryce Haley</h1>
+        <p>Eigenfaces<p>
+      </div>
+
+      <!--Content-->
+      <div id="links">
+       <p class="nospace"><b>Repo:</b><a class="nav-link fab fa-lg fa-github icon-cog" href="https://github.com/BryceHaley/EigenFaces"></a></p>
+     </div>
+     <div id="content">
+       <h5>Image Processing</h5>
+           <hr>
+           <p>
+          This project uses face image data from the Olivetti Research Laboratory (ORL).
+          The ORL data set is useful because all images are of a standard size and
+          there is little variance in the lighting and positioning of the face
+          Eigenfaces requires standard dimension images and works best when the lighting, positioning and expression of the faces are standard.</p>
+
+        <p>After Image files are loaded they must be transformed. Each image is transfromed from a <i>l × w</i> matrix of greyscale values
+          to a single column vector of length <i>lw</i>. Next:</p>
+          <li> Each image is concatenated into a matrix <i>X</i> whose columns are the image vectors;</li>
+          <li> The mean image vector is subtrated from each row of <i>X</i>;</li>
+          <li> the covariance matrix <i>S</i> of <i>X</i> is calcualted; and</li>
+          <li> The eigendecomposition of <i>S</i> is found.</li>
+            
+
+
+          <pre>
+          <code>  
+            [h,w,n] = size(imgs);
+            d = h*w;
+            
+            % vectorize images
+            x = reshape(imgs,[d n]);
+            x = double(x);
+            
+            %subtract mean
+            mean_matrix = mean(x,2);
+            x = bsxfun(@minus, x, mean_matrix);
+            
+            % calculate covariance
+            s = cov(x');
+            
+            % obtain eigenvalue & eigenvector
+            [V,D] = eig(s);
+            eigval = diag(D);
+          </code>
+         </pre>
+
+        <div class="row">
+
+           <!--MeanFace-->
+            <div class="col-md-4" align="center">
+                    <img src="images/eigenfaces/mean_15.png" alt="Description" class="img-thumbnail">
+                <div class="caption">
+                    <h6 class="thumb-heading">The mean face and the first 15 dominant eiganvectors</h6>
+                </div>
+              </div>
+
+           <!--4 stages-->
+            <div class="col-md-4" align="center">
+                    <img src="images/eigenfaces/4_stages.png" alt="Description" class="img-thumbnail">
+                <div class="caption">
+                  <h6 class="thumb-heading">Stages of Eigenfaces</h6>
+                  <p>
+                    Although the resulting image is not recognizable it still contains enough information
+                    for face identification.
+                  </p>
+                </div>
+              </div>
+
+
+            </div>
+       <h5>Using Eigenfaces</h5>
+       <hr>
+       <p>Note that the eigenface representations in the right image weren't created using all the obtianed eigenvectors(AKA principal components).
+        The image used a weighted sum of only the 100 most dominant eigenvectors. The rest of the eigenvectors contributed sufficiently little information as to be ignored.
+        Igoring these vectors allows this algorithm to greatly compress the information needing to be stored and In this way this algorithm is working much like the PCA algorithm, 
+        a threshold is determined for which eigenvectors are kept for analysis/identifcation and the rest can safely be ignored allowing for less space and computational requirements.
+      </p><p>
+      Images are stored as weights of the dominant eigenvectors and images can be added by storing new weights without 
+      recalculating any matrix decompositions. Comparisions of a new image to identify it with an existing one is just a 
+      matter of comparing the weights. The Euclidean distance between a new image's weights and the existing weight vector
+      is used to compare. A threshold for determining whether a given comparason must be decided and should be based on experimentation
+      with the individual dataset..
+    </p>
+    <figure>
+      <img src="images/eigenfaces/weight_calc.png" alt="Matrix-Vector product" style="width:40%">
+      <figcaption><i>fig:Calculating the weights vector of a new image</i></figcaption>
+    </figure>
+
+
+     <h5>Conclusion</h5>
+     <hr>
+     <p>The Eigenfaces algorithm gives a neat demonstration of some linear algebra principals and can be used to explain Principal Compoenent Analysis or Singular Value Decomposition. 
+       However, with the modern ubiquity of processing power, storage and machine learning techniques it is certianly not the most powerful or robust algorithm for identifcation tasks.</p>
+       <p> Please see my repo for complete matlab code.</p>
+
+
+   </div>
+  </div>
+
+</body>
+
+</html>

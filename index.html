@@ -5,21 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="stylesheets/style.css">
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
   </head>
 
   <body>
-
+    <div class="container">
     <div id="header">
       <h1>Bryce Haley</h1>
       <p>Developer</p>
     </div>
 
-    <div id="content">
+    <div id="links">
       <p><a href="https://www.linkedin.com/in/bryce-haley/">linkedin</a></p>
       <p><a href="https://github.com/BryceHaley">GitHub</a></p>
     </div>
+    <h5>Projects</h5>
+        <hr>
+        <div class="row">
 
+           <!--EigenFaces-->
+            <div class="col-md-4" align="center">
+                <a href="eigenfaces.html">
+                    <img src="images/eigenfaces/eigface-mean.jpg" alt="Description" class="img-thumbnail">
+                </a>
+                <div class="caption">
+                    <a href="eigenfaces.html"><h6 class="thumb-heading">Eigenfaces</h6></a>
+                    <p class="nospace"><b>Subject: </b>Web Development</p>
+                    <p class="nospace"><b>Technologies: </b>MATLAB</p>
+                    <p class="nospace"><b>Repo:</b><a class="nav-link fab fa-lg fa-github icon-cog" href="https://github.com/BryceHaley/EigenFaces"></a></p>
+                    <p>
+                      Eigenfaces is a concise algorithm for face identification using a process much like Principal Component Analysis(PCA).
+                      It is an easily understood method of facial identification that requires little memory or processing power.
+                    </p>
+                </div>
+            </div>
+          </div>
+    </div>
   </body>
 </html>
-
-
